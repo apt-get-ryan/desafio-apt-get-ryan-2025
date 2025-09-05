@@ -1,11 +1,4 @@
 class AbrigoAnimais {
-  /**
-   * @typedef {Object} Animal
-   * @property {String[]}
-   */
-  /**
-   * @type {Animal}
-   */
   animais = {
     'Rex': ['cão', 'rato,bola'],
     'Mimi': ['gato', 'bola,laser'],
@@ -44,13 +37,22 @@ class AbrigoAnimais {
       let pessoa1adota = false;
       let pessoa2adota = false;
       if(pessoa1TotalAnimais < 3) {
-        
+        if ( animal == "Loco") {
+          if(pessoa1TotalAnimais > 0) {
+            pessoa1adota = true;
+          }
+        }
         if(this.verificaOrdemDosBrinquedos(brinquedosPessoa1, brinquedosFavoritos)) {
           pessoa1TotalAnimais++;
           pessoa1adota = true;
         }
       }
       if(pessoa2TotalAnimais < 3) {
+        if ( animal == "Loco") {
+          if(pessoa2TotalAnimais > 0) {
+            pessoa2adota = true;
+          }
+        }
         if(this.verificaOrdemDosBrinquedos(brinquedosPessoa2, brinquedosFavoritos)) {
           pessoa2TotalAnimais++;
           pessoa2adota = true;
@@ -100,7 +102,4 @@ class AbrigoAnimais {
 }
 
 
-const resultado = new AbrigoAnimais().encontraPessoas('BOLA,LASER',
-      'BOLA,NOVELO,RATO,LASER', 'Mimi,Fofo,Rex,Bola');
-console.log(resultado);
 export { AbrigoAnimais as AbrigoAnimais };
